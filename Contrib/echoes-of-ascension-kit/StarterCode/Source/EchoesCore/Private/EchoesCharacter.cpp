@@ -2,6 +2,7 @@
 
 #include "EchoesCharacter.h"
 #include "AbilitySystemComponent.h"
+#include "EchoesAbilitySystemComponent.h"
 #include "EchoesPlayerState.h"
 #include "GameplayEffect.h"
 #include "Abilities/GameplayAbility.h"
@@ -51,18 +52,12 @@ void AEchoesCharacter::GiveDefaultAbilities()
 		return;
 	}
 
-	UAbilitySystemComponent* ASC = GetAbilitySystemComponent();
-	if (!ASC)
+	// Delegate to the ASC so the grant is idempotent. The ASC lives on the PlayerState and
+	// survives respawn, so this runs again for every new avatar pawn — a naive GiveAbility loop
+	// here would stack duplicate specs across runs. See UE5_Gotchas/01.
+	if (UEchoesAbilitySystemComponent* ASC = Cast<UEchoesAbilitySystemComponent>(GetAbilitySystemComponent()))
 	{
-		return;
-	}
-
-	for (const TSubclassOf<UGameplayAbility>& AbilityClass : DefaultAbilities)
-	{
-		if (AbilityClass)
-		{
-			ASC->GiveAbility(FGameplayAbilitySpec(AbilityClass, 1));
-		}
+		ASC->GrantStartupAbilities(DefaultAbilities);
 	}
 }
 

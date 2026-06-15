@@ -95,6 +95,27 @@ void AMyCharacter::OnRep_PlayerState()
 
 Init in `BeginPlay` instead and the client's `PlayerState` is often still null → no abilities, no attributes, silent failure.
 
+## Grant startup abilities once (the respawn duplicate-grant trap)
+
+Initializing `AbilityActorInfo` on **every** `PossessedBy` is correct (above). The trap is doing the same with the *grant*. Because the ASC lives on the respawn-surviving `PlayerState`, a new avatar pawn is possessed on every respawn / new run, so a `GiveAbility` loop in `PossessedBy` runs **again** and stacks duplicate `FGameplayAbilitySpec`s on the same ASC. Cooldowns/charges then misbehave and input-tag activation can fire the "same" ability twice.
+
+Grant from the ASC and guard it, so the call is idempotent no matter how often `PossessedBy` fires:
+
+```cpp
+// In your ASC subclass — granted once for the ASC's lifetime, server-authoritative.
+void UMyAbilitySystemComponent::GrantStartupAbilities(const TArray<TSubclassOf<UGameplayAbility>>& Abilities)
+{
+    if (!IsOwnerActorAuthoritative() || bStartupAbilitiesGranted)
+        return;
+    for (const TSubclassOf<UGameplayAbility>& Ability : Abilities)
+        if (Ability)
+            GiveAbility(FGameplayAbilitySpec(Ability, 1));
+    bStartupAbilitiesGranted = true;   // bool member on the ASC; not replicated
+}
+```
+
+Symptom when you forget: abilities work on first spawn, then after a death/respawn the player has 2× (then 3×…) of each granted ability. Note attribute init is the *opposite* case — re-applying `GE_InitStats` on respawn is usually what you want (full health on a fresh body), so guard the **grant**, not the attribute seed. The starter `EchoesAbilitySystemComponent` ships this guard.
+
 ## AttributeSet: creation, replication, init
 
 - **Create** the AttributeSet with `CreateDefaultSubobject` on the ASC's owner (the PlayerState for players). Owning an AttributeSet is what registers its attributes with the ASC.
