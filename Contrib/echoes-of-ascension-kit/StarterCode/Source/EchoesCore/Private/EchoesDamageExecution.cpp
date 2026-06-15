@@ -33,8 +33,8 @@ void UEchoesDamageExecution::Execute_Implementation(const FGameplayEffectCustomE
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
 
 	FAggregatorEvaluateParameters EvalParams;
-	EvalParams.SourceTags = Spec.CapturedSourceTags.GetAggregatorTags();
-	EvalParams.TargetTags = Spec.CapturedTargetTags.GetAggregatorTags();
+	EvalParams.SourceTags = Spec.CapturedSourceTags.GetAggregatedTags();
+	EvalParams.TargetTags = Spec.CapturedTargetTags.GetAggregatedTags();
 
 	float AttackPower = 0.f;
 	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().AttackPowerDef, EvalParams, AttackPower);

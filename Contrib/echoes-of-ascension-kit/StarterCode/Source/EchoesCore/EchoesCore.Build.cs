@@ -17,7 +17,11 @@ public class EchoesCore : ModuleRules
 			// GAS
 			"GameplayAbilities",
 			"GameplayTags",
-			"GameplayTasks"
+			"GameplayTasks",
+			// AI — EchoesAIController.h includes AIController.h + holds a UBehaviorTree*,
+			// and EchoesAIController.cpp calls RunBehaviorTree(). All three live in AIModule.
+			// The include is in a PUBLIC header, so this must be a public dependency.
+			"AIModule"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[]

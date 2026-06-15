@@ -2,6 +2,20 @@
 
 This module was **reviewed line-by-line against UE 5.7 APIs** but authored without an engine install, so the first build is a "wire it up + fix any nits" pass, not magic. This doc front-loads every issue likely to surface so that pass is ~15 minutes, not a debugging session.
 
+## Build verification (2026-06-14) — now compiles clean against UE 5.7
+
+The module was put through a real build against an installed **UE 5.7**: a minimal C++ host project, **Game target** (`Win64 Development`), UnrealHeaderTool + MSVC v143 over all 33 files, then link. **Result: it compiles and links clean.** Four fixes were needed, in two waves:
+
+**Wave 1 — found by an independent read-audit (structural, version-independent):**
+1. **`EchoesCore.Build.cs` was missing `AIModule`.** `EchoesAIController` (`AIController.h`, `UBehaviorTree`, `RunBehaviorTree`) needs it; `GameplayTasks` doesn't pull it in. Added to `PublicDependencyModuleNames` (public, since the include is in a public header).
+2. **`EchoesGameplayTags.h` exported tags incorrectly.** `ECHOESCORE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(...)` placed `__declspec` before `extern` and was asymmetric with the unmarked `.cpp` defs. Removed `ECHOESCORE_API` from all 8 — the Epic/Lyra native-tag idiom.
+
+**Wave 2 — found only by compiling (plausible API names no read-review caught):**
+3. **`EchoesAttributeSet.cpp` ctor called `FGameplayAttributeData::Init()`**, which doesn't exist. Switched to the `ATTRIBUTE_ACCESSORS`-generated `InitHealth(...)` / `InitMaxHealth(...)` / etc. (they set base + current).
+4. **`EchoesDamageExecution.cpp` called `FTagContainerAggregator::GetAggregatorTags()`**, which doesn't exist. Corrected to `GetAggregatedTags()`.
+
+Note the **Game target** is used deliberately: it compiles every EchoesCore file (all runtime) without pulling in `UnrealEd` → `SwarmInterface` (which requires the .NET Framework SDK). An Editor-target build needs that SDK component installed — a toolchain detail, unrelated to EchoesCore. Four cosmetic nits (an unused header include, a self-vs-target effect-spec note, a non-`BlueprintType` handle pin, an over-stated persistent-id comment) remain logged-not-changed — none affect the build. The per-file ratings below now reflect a real compile, not just a read.
+
 ## Pre-build checklist (do these first — they cause 90% of first-build failures)
 
 1. **UE version:** 5.7 (the code targets 5.7 APIs; see version-sensitivity notes below if you're on 5.4–5.6).
@@ -28,7 +42,7 @@ All 20 files traced. Confidence = how likely it compiles unchanged on a clean 5.
 | `EchoesPersistentIdComponent.h/.cpp` | High | `OnRegister`/`FGuid::NewGuid` standard. |
 | `EchoesBiomeDataAsset.h` | High | `TSoftObjectPtr<UWorld>` fine. |
 | `EchoesFloorGenerator.h/.cpp` | High | `Math/RandomStream.h` included for `FRandomStream`. |
-| `EchoesCore.Build.cs` / `EchoesCore.cpp` | High | See module-registration steps above. |
+| `EchoesCore.Build.cs` / `EchoesCore.cpp` | High | `AIModule` dep added in the 2026-06-14 audit (was missing → AI controller wouldn't compile); see module-registration steps above. |
 
 No file is rated below High — the earlier code review removed the real API errors (logged in `README.md`). The realistic failures are the *environmental* ones in the checklist, not the C++.
 
