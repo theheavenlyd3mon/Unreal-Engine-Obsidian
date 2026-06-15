@@ -1,13 +1,13 @@
 ---
 name: unreal-engine-dev
 description: Help build the Unreal Engine 5.7 RPG "Echoes of Ascension" (and UE5 game systems generally) — GAS combat, save/persistence, procedural Tower generation, multiplayer-readiness, performance. Use whenever the user asks to design, scaffold, debug, or review UE5 C++/Blueprint gameplay code, mentions GAS / AbilitySystemComponent / AttributeSet / GameplayEffect / GameplayAbility, World Partition, PCG, Niagara, Nanite/Lumen, save games, or the Echoes of Ascension project, Eldrath, the Tower of Ascension, Aether Mastery, Aetheric Renown, or Echoes power fragments. This skill knows where the local UE5 knowledge vault and starter code live, the project's locked architecture decisions, and the offload-and-review workflow for generating engine code without hallucinating APIs.
-version: 1.0.0
+version: 1.1.0
 author: Claude (Forge), 2026-06-13 — built to help NOUS member Noctis (theheavenlyd3mon) with Echoes of Ascension
 license: MIT
 metadata:
   hermes:
     tags: [unreal-engine, ue5, gas, game-development, rpg, echoes-of-ascension, scaffolding, code-review]
-    related_skills: [contributing-to-hermes, autonomous-ai-agents]
+    related_skills: [ue5-code-audit, contributing-to-hermes, autonomous-ai-agents]
 ---
 
 # Unreal Engine 5 Dev — helping build Echoes of Ascension
@@ -38,10 +38,26 @@ names** (observed: `UGameplayAbilityComponent`, `UAbilitySystemLibrary::SetOwner
 
 1. **Draft** larger code (>~50 lines) on the local vLLM node (`127.0.0.1:8001`, 4 concurrent) with a
    tight, signature-accurate prompt that names the real APIs you expect.
-2. **Review every line** against the vault's gotchas docs and the starter code. Fix invented APIs,
-   wrong override signatures, and non-idiomatic includes.
+2. **Review using `ue5-code-audit`** — load the skill (`skill_view(name='ue5-code-audit')`) and follow
+   its 6-phase audit sequence. This catches hallucinated APIs, wrong override signatures, non-idiomatic
+   includes, and replication errors systematically rather than by vibes. Fix everything it flags.
 3. **Cite the gotcha doc** you used. Tiny fixes / debugging stay local to you (the agent); don't
    offload a 3-line change.
+
+## Measuring improvement: the eval harness
+
+After changing a system prompt or swapping models, run the eval harness to measure whether
+hallucinations actually drop:
+
+```bash
+EVAL_ENDPOINT=http://127.0.0.1:11401/v1/chat/completions \
+EVAL_MODEL=<your-model> \
+python <kit>/eval-harness/ue5_eval.py -v
+```
+
+The harness runs 8 fixed UE5 coding tasks and checks for known hallucinated APIs. Track the score
+over time. A model that scores 5/8 today should score 7/8 after a prompt patch — if it doesn't,
+the patch didn't work. See `<kit>/eval-harness/README.md` for task format and extension instructions.
 
 For each system, read the matching gotcha doc *first*:
 
@@ -55,16 +71,16 @@ For each system, read the matching gotcha doc *first*:
 
 ## Locked architecture decisions (don't relitigate without the user)
 
-- **ASC on PlayerState**, **Mixed** replication for players, **Full** for AI. (`01`)
+Full list with rationale: `<kit>/hermes-skill/PROFILE-PROMPTS.md` and `references/eoa-project-paths.md`. Summary:
+
+- **ASC on PlayerState**, **Mixed** replication for players, **Full** for AI.
 - Init attributes via an instant **GameplayEffect**, not C++ constants. Math in GEs, not Tick.
 - **InitAbilityActorInfo** on server (`PossessedBy`) AND owning client (`OnRep_PlayerState`).
-- Two saves: **Profile** (permanent) vs **Run** (disposable); version-stamp both; async save. (`02`)
-- Procedural floors are **deterministic** from a seed; **PCG decorates, doesn't lay out**; floors are
-  **discrete sublevels**, not World Partition; NavMesh runtime gen = **Dynamic**. (`04`)
-- **Software Lumen**, defined min-spec, soft references + async loading. (`05`)
-- It's **World Partition**, not the legacy "World Composition." (`02`)
-- Build **authority-correct from day one** even though single-player ships first; co-op is scoped to
-  the (instanced) Tower. (`03`)
+- Two saves: **Profile** (permanent) vs **Run** (disposable); version-stamp both; async.
+- Procedural floors are **deterministic** from a seed; **PCG decorates, doesn't lay out**; discrete sublevels; NavMesh runtime gen = **Dynamic**.
+- **Software Lumen**, defined min-spec, soft references + async loading.
+- **World Partition** (not World Composition) — but not in the slice.
+- Build **authority-correct from day one** even though single-player ships first.
 
 ## Scope discipline (the project's #1 risk)
 
