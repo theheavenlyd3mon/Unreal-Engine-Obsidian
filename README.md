@@ -102,6 +102,22 @@ Each folder has a `_MOC_` file (Map of Content) that links to every file in that
 - `#combat`, `#ai`, `#ui`, `#animation`, `#niagara`, `#materials` — Topic-specific tags
 - `#gotchas`, `#architecture` — Architecture and "what breaks" docs
 
+## Local PR Harness
+
+Use the local harness to prepare reviewable PRs without uploading:
+
+```bash
+python3 tools/pr_harness.py check
+python3 tools/pr_harness.py draft --title "Add feature-shape template"
+```
+
+The harness writes `.pr_draft.md` with branch, changed files, diffstat, local status, and verification output. Upload is intentionally opt-in and guarded:
+
+```bash
+# after human review only
+python3 tools/pr_harness.py publish --title "Add feature-shape template" --repo theheavenlyd3mon/Unreal-Engine-Obsidian --i-reviewed-this
+```
+
 ## Versions
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
