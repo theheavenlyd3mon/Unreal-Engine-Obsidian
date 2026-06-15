@@ -1,0 +1,43 @@
+# vault_lint baseline. Existing findings listed here do not fail CI; new ERRORs still do.
+ERROR	Step_by_Step_Guides/02_Packaging_Project.md	broken wikilink [[02_Locomotion_Blendspace_Crouching_and_Procedural_Leaning]]
+ERROR	Step_by_Step_Guides/03_Optimizing_Your_Unreal_Engine_Game.md	broken wikilink [[03_Vaulting_with_Motion_Warping]]
+ERROR	Step_by_Step_Guides/04_RPG_Tutorial_02_Locomotion_Blendspace.md	broken wikilink [[02_Locomotion_Blendspace_Crouching_and_Procedural_Leaning]]
+ERROR	Step_by_Step_Guides/04_RPG_Tutorial_02_Locomotion_Blendspace.md	broken wikilink [[05_Player_Stats_Health_Stamina_and_XP]]
+ERROR	Step_by_Step_Guides/05_RPG_Tutorial_03_Vaulting_Motion_Warping.md	broken wikilink [[03_Vaulting_with_Motion_Warping]]
+ERROR	Step_by_Step_Guides/05_RPG_Tutorial_03_Vaulting_Motion_Warping.md	broken wikilink [[06_Damage_and_Stamina]]
+ERROR	Step_by_Step_Guides/06_RPG_Tutorial_04_Assassinations.md	broken wikilink [[04_Assassinations]]
+ERROR	Step_by_Step_Guides/06_RPG_Tutorial_04_Assassinations.md	broken wikilink [[07_Levels_and_XP]]
+ERROR	Step_by_Step_Guides/07_RPG_Tutorial_05_Player_Stats.md	broken wikilink [[05_Player_Stats_Health_Stamina_and_XP]]
+ERROR	Step_by_Step_Guides/07_RPG_Tutorial_05_Player_Stats.md	broken wikilink [[08_Sounds_and_UI]]
+ERROR	Step_by_Step_Guides/08_RPG_Tutorial_06_Damage_and_Stamina.md	broken wikilink [[06_Damage_and_Stamina]]
+ERROR	Step_by_Step_Guides/08_RPG_Tutorial_06_Damage_and_Stamina.md	broken wikilink [[09_Combat]]
+ERROR	Step_by_Step_Guides/09_RPG_Tutorial_07_Levels_and_XP.md	broken wikilink [[07_Levels_and_XP]]
+ERROR	Step_by_Step_Guides/09_RPG_Tutorial_07_Levels_and_XP.md	broken wikilink [[10_Sword_Trace_Damage_and_Hit_Reactions]]
+ERROR	Step_by_Step_Guides/10_RPG_Tutorial_08_Sounds_and_UI.md	broken wikilink [[08_Sounds_and_UI]]
+ERROR	Step_by_Step_Guides/11_RPG_Tutorial_09_Combat.md	broken wikilink [[09_Combat]]
+ERROR	Step_by_Step_Guides/12_RPG_Tutorial_10_Sword_Trace_Damage.md	broken wikilink [[10_Sword_Trace_Damage_and_Hit_Reactions]]
+ERROR	UE5_Audio/02_PrismaticaDev_MetaSounds.md	broken wikilink [[01_Intro_to_Audio|Intro to Audio]]
+ERROR	UE5_Audio/02_PrismaticaDev_MetaSounds.md	broken wikilink [[03_Advanced_MetaSounds|Advanced MetaSounds]]
+ERROR	UE5_Audio/02_PrismaticaDev_MetaSounds.md	broken wikilink [[UE5_Audio_MOC|UE5 Audio MOC]]
+ERROR	UE5_Materials/01_Advanced_Glass_Material.md	broken wikilink [[UE5_Materials_MOC|UE5 Materials MOC]]
+ERROR	UE5_Materials/02_Layered_Material_Workflow.md	broken wikilink [[UE5_Materials_MOC|UE5 Materials MOC]]
+ERROR	UE5_Materials/03_Parallax_Occlusion_Mapping.md	broken wikilink [[UE5_Materials_MOC|UE5 Materials MOC]]
+WARN	<vault>	duplicate frontmatter title 'how to start optimizing your unreal engine game': Learn_to_Code_Blueprints/start_optimizing_your_Unreal_Engine_Game.md, Step_by_Step_Guides/03_Optimizing_Your_Unreal_Engine_Game.md
+WARN	<vault>	duplicate note stem 'readme': Contrib/echoes-of-ascension-kit/README.md, Contrib/echoes-of-ascension-kit/StarterCode/README.md, Contrib/echoes-of-ascension-kit/concept-art/README.md, Contrib/echoes-of-ascension-kit/eval-harness/README.md, README.md
+WARN	Contrib/echoes-of-ascension-kit/StarterCode/FIRST_BUILD.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/StarterCode/FIRST_BUILD.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/design/01_VERTICAL_SLICE_SPEC.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/design/01_VERTICAL_SLICE_SPEC.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/design/02_MILESTONE_BACKLOG.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/design/02_MILESTONE_BACKLOG.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/design/03_SYSTEM_DESIGN.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/design/03_SYSTEM_DESIGN.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/design/04_V130_ERRATA_AND_ALIGNMENT.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/design/04_V130_ERRATA_AND_ALIGNMENT.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/hermes-skill/PROFILE-PROMPTS.md	missing YAML frontmatter
+WARN	Contrib/echoes-of-ascension-kit/hermes-skill/PROFILE-PROMPTS.md	not linked from any _MOC_ file
+WARN	Contrib/echoes-of-ascension-kit/hermes-skill/unreal-engine-dev/SKILL.md	not linked from any _MOC_ file
+WARN	UE5_CPP/UE5_Cpp_Reference_Guide.md	missing YAML frontmatter
+WARN	UE5_CPP/UE5_Engine_Source_Code_Access.md	missing YAML frontmatter
+WARN	UE5_CPP/UE5_GAS_Reference.md	missing YAML frontmatter
+WARN	UE5_CPP/UE5_Gameplay_Framework_Reference.md	missing YAML frontmatter
