@@ -102,6 +102,22 @@ Each folder has a `_MOC_` file (Map of Content) that links to every file in that
 - `#combat`, `#ai`, `#ui`, `#animation`, `#niagara`, `#materials` — Topic-specific tags
 - `#gotchas`, `#architecture` — Architecture and "what breaks" docs
 
+## Vault Checks
+
+Run the local vault linter before opening PRs that add, rename, or reorganize notes:
+
+```bash
+python3 tools/vault_lint.py .
+```
+
+The linter uses only the Python standard library. It checks for required root indexes, broken or ambiguous Obsidian wikilinks, duplicate note names/titles, and warning-only metadata/MOC hygiene issues. Existing vault findings can be recorded in `.vault_lint_baseline`; CI suppresses those but still fails on new broken/ambiguous wikilinks.
+
+To refresh the baseline after intentionally fixing or accepting findings:
+
+```bash
+python3 tools/vault_lint.py . --update-baseline
+```
+
 ## Versions
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
