@@ -140,6 +140,20 @@ The harness writes `.pr_draft.md` with branch, changed files, diffstat, local st
 python3 tools/pr_harness.py publish --title "Add feature-shape template" --repo theheavenlyd3mon/Unreal-Engine-Obsidian --i-reviewed-this
 ```
 
+## Local Additions (carried forward from pre-sync local work)
+
+When this vault was re-synced to v1.5.0, the files below were preserved from the
+local branch because they have no upstream equivalent. They are not part of the
+released tutorial set:
+
+- `Research/` — in-progress UE 5.8 API research and vault curation notes
+  (`UE58_API_DeepSearch.md`, `curation_report.md`, and their `_incoming/` drafts).
+- `Local_Models_Setup.md` — local LLM / TurboHaul hardware setup reference
+  (RTX 4070 Ti). Personal dev-environment note, not tutorial content.
+- `UE5_CPP/_UE5_8_Convention_Standard.md` — the canonical frontmatter and naming
+  convention every note in this vault follows (UE 5.8 aligned). Read it before
+  adding or editing notes.
+
 ## Versions
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
