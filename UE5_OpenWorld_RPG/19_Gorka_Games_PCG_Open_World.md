@@ -32,7 +32,7 @@ Older world-building entry using PCG/Landmass/Water/World Partition. Concept sha
 
 ## Version Caveats
 
-- Pre-5.5 upload; review against native 5.7 WP/PCG docs before keeping implementation details.
+- Pre-5.5 upload; reviewed against UE 5.8 WP/PCG docs on 2026-07-08 — keep as framework reference only, not current API guidance.
 
 ## Related
 
