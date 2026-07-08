@@ -16,22 +16,27 @@ An Obsidian vault containing extracted summaries, transcripts, step-by-step guid
 
 ### Topic Folders (Added in v1.1.0)
 
-| Folder | Files | What It Covers |
+|| Folder | Files | What It Covers |
 |--------|-------|----------------|
-| `UE5_GAS/` | 5 | Gameplay Ability System — abilities, effects, attributes, combat |
-| `UE5_CPP/` | 9 | C++ for UE5 — coding standard, UObject, containers, delegates, gameplay framework, GAS (3 new reference guides in v1.3.0: 897-line C++ reference, gameplay framework, full GAS breakdown) |
-| `UE5_Data_Assets/` | 3 | Data Assets & Data Tables — UDataAsset, PrimaryDataAsset, DataTables |
-| `UE5_AI/` | 3 | AI — Behavior Trees, Blackboards, AI Perception |
-| `UE5_Niagara/` | 3 | Niagara particles — emitters, VFX, mesh particles |
-| `UE5_UI/` | 3 | UI / UMG — menus, HUD, Canvas Panel, best practices |
-| `UE5_Enhanced_Input/` | 3 | Enhanced Input — Input Actions, Mapping Contexts, triggers |
-| `UE5_Save_System/` | 3 | Save/Load — SaveGame objects, structs, checkpoints, autosave |
-| `UE5_Animation/` | 3 | Animation — Animation Blueprints, State Machines, Blend Spaces |
-| `UE5_Optimization/` | 3 | Optimization — profiling, Unreal Insights, GPU tips |
-| `UE5_World_Partition/` | 3 | World Partition — grid system, HLODs, landscape streaming |
-| `UE5_Audio/` | 2 | Audio — MetaSounds, attenuation, Blueprint integration |
-| `UE5_Materials/` | 3 | Materials — glass, layered materials, parallax occlusion |
-| `UE5_Multiplayer/` | 3 | Multiplayer — replication, RPCs, RepNotify |
+| `UE5_GAS/` | 6 | Gameplay Ability System — abilities, effects, attributes, combat |
+| `UE5_CPP/` | 10 | C++ for UE5 — coding standard, UObject, containers, delegates, gameplay framework, GAS (3 new reference guides in v1.3.0: 897-line C++ reference, gameplay framework, full GAS breakdown) |
+| `UE5_Data_Assets/` | 4 | Data Assets & Data Tables — UDataAsset, PrimaryDataAsset, DataTables |
+| `UE5_AI/` | 4 | AI — Behavior Trees, Blackboards, AI Perception |
+| `UE5_Niagara/` | 4 | Niagara particles — emitters, VFX, mesh particles |
+| `UE5_UI/` | 4 | UI / UMG — menus, HUD, Canvas Panel, best practices |
+| `UE5_Enhanced_Input/` | 4 | Enhanced Input — Input Actions, Mapping Contexts, triggers |
+| `UE5_Save_System/` | 4 | Save/Load — SaveGame objects, structs, checkpoints, autosave |
+| `UE5_Animation/` | 4 | Animation — Animation Blueprints, State Machines, Blend Spaces |
+| `UE5_Optimization/` | 4 | Optimization — profiling, Unreal Insights, GPU tips |
+| `UE5_World_Partition/` | 4 | World Partition — grid system, HLODs, landscape streaming |
+| `UE5_Audio/` | 3 | Audio — MetaSounds, attenuation, Blueprint integration |
+| `UE5_Materials/` | 4 | Materials — glass, layered materials, parallax occlusion |
+| `UE5_Multiplayer/` | 4 | Multiplayer — replication, RPCs, RepNotify |
+| `UE5_Gotchas/` | 6 | What breaks and why — GAS replication traps, save architecture, multiplayer-from-day-one pitfalls, procedural generation gotchas, performance budget reality |
+| `UE5_OpenWorld_RPG/` | 22 | Open-world RPG framework notes, curated tutorials, RPG build sequences |
+| `Step_by_Step_Guides/` | 14 | Numbered step-by-step build guides |
+| `Individual_Videos/` | 4 | One-off tutorials that don't belong to a series |
+| `Articles/` | 3 | Written content (non-video) |
 
 ### Architecture (Added in v1.2.0)
 
@@ -45,19 +50,19 @@ An Obsidian vault containing extracted summaries, transcripts, step-by-step guid
 | `GASDocumentation.md` | Pointer to tranek's GAS documentation (324KB community reference) |
 | `open-source-ue5-game-references.md` | ActionRoguelike and Alis as code architecture references |
 
-### Contributed Content (Added in v1.4.0)
+### Contributed Content (Added in v1.4.0, maintained in v1.5.0)
 
 | Folder | What's In It |
 |--------|-------------|
 | `UE5_Gotchas/` | 5 concept docs + MOC — GAS replication, save architecture, multiplayer, procedural gen, performance budgets. The "what bites you" layer. |
-| `Contrib/echoes-of-ascension-kit/` | Community dev kit: vertical-slice spec, milestone backlog, system design, errata, starter UE 5.7 C++ module (EchoesCore), eval harness, Hermes skill |
+| `Contrib/echoes-of-ascension-kit/` | Community dev kit: vertical-slice spec, milestone backlog, system design, errata, starter UE 5.8 C++ module (EchoesCore), eval harness, Hermes skill |
 | `Articles/ue5-canonical-references.md` | Stable external references that don't rot — Epic docs, tranek, Lyra, benui, etc. |
 | `_REVIEW_Contributed_Gotchas.md` | Review notes for the contributed gotchas |
 ### Gotchas (Added in v1.3.1, contributed by Jeff)
 
-| Folder | Files | What It Covers |
+|| Folder | Files | What It Covers |
 |--------|-------|----------------|
-| `UE5_Gotchas/` | 5 | What breaks and why — GAS replication traps, open-world save architecture, multiplayer-from-day-one pitfalls, procedural generation gotchas, performance budget reality |
+| `UE5_Gotchas/` | 6 | What breaks and why — GAS replication traps, open-world save architecture, multiplayer-from-day-one pitfalls, procedural generation gotchas, performance budget reality |
 
 ### Special Folders
 
@@ -66,6 +71,7 @@ An Obsidian vault containing extracted summaries, transcripts, step-by-step guid
 | `Step_by_Step_Guides/` | The best tutorials rewritten as numbered steps with prerequisites. Start here if you want to build something. |
 | `Individual_Videos/` | One-off tutorials that don't belong to a series |
 | `Articles/` | Written content (non-video) |
+| `UE5_OpenWorld_RPG/` | Curated open-world RPG framework notes, tutorial shortlist, and RPG build integration references |
 
 ## File Structure
 

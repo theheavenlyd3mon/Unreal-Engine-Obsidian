@@ -2,7 +2,7 @@
 
 #ue5 #cpp #reference #gameplay-framework #actors #modules
 
-> Core gameplay architecture — class hierarchy, lifecycle, modules, and constructors. From Epic UE 5.7 documentation.
+> Core gameplay architecture — class hierarchy, lifecycle, modules, and constructors. From Epic UE 5.8 documentation.
 
 ---
 

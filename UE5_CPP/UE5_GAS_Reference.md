@@ -2,7 +2,7 @@
 
 #ue5 #cpp #reference #gas #gameplay-abilities #gameplay-effects #attributes
 
-> Comprehensive GAS reference — overview, abilities, attributes, effects, ability tasks, and networking. From Epic UE 5.7 documentation.
+> Comprehensive GAS reference — overview, abilities, attributes, effects, ability tasks, and networking. From Epic UE 5.8 documentation.
 
 ---
 

@@ -13,7 +13,7 @@
 - **Released and publicly available.** UE 5.8 shipped on June 17, 2026 via the Epic Games
   Launcher, GitHub, and the Linux page. [Source: release forum announcement]
   https://forums.unrealengine.com/t/unreal-engine-5-8-released/2729274
-- **Last planned major UE5 release.** Epic states UE 5.8 is the final major UE5 release on
+- **Last planned major UE5 release.** Epic has stated that UE 5.8 is the final major UE5 release on
   the roadmap as they ramp up UE6; UE5 continues to receive bug-fix/regression support.
   [Source: launch announcement]
   https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available
@@ -48,7 +48,7 @@ referenced per-row by section.
 | `FSharedEventRef` | Constructor `EEventMode::ManualReset` now honored (was always AutoReset) | 5.8 | Check callsites for behavior change [Core Upgrade Notes] |
 | `ExecCheckImplInternal` | Renamed → `CheckEnsureFailed` | 5.8 | Naming clarity (ensures, not checks) [Core API Change] |
 | `LexToString(bool)` overload | No longer hijacks types that implicitly cast to bool | 5.8 | Missing/ambiguous `LexToString` now fails at compile time [Core API Change] |
-| `UE_LOG` family | Deprecated in favor of `UE_LOGF` (UTF-8 format strings) | 5.8 | `ConvertUELog.py` ships to auto-upgrade most uses [Core Upgrade Notes] |
+|| `UE_LOG` family | Migration target: prefer `UE_LOGF` (UTF-8 format strings) | 5.8 | `ConvertUELog.py` ships to auto-upgrade most uses [Core Upgrade Notes]
 | Intel OneAPI supported version | Bumped to 2026.0.0 | 5.8 | Build toolchain [Build New] |
 | `-SkipEncryption` for IoStore | Added support | 5.8 | Build/package [Build New] |
 | `TargetRules.bEnableConfigSystem` | Added (disable config loading) | 5.8 | [Core New] |

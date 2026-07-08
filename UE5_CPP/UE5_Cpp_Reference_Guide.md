@@ -2,7 +2,7 @@
 
 #ue5 #cpp #reference #coding-standard #gas #containers #delegates
 
-> Comprehensive C++ reference for Unreal Engine 5.7. Pulled from official Epic documentation. Covers coding standard, UObject system, reflection macros, containers, delegates, smart pointers, and memory tracking.
+> Comprehensive C++ reference for Unreal Engine 5.8. Pulled from official Epic documentation. Covers coding standard, UObject system, reflection macros, containers, delegates, smart pointers, and memory tracking.
 
 ---
 

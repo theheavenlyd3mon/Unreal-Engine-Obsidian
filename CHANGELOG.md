@@ -4,6 +4,25 @@ All notable changes to the UE5 Tutorial Knowledge Base will be documented in thi
 
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.5.0] — 2026-07-08
+
+### Added
+- **UE 5.8 brief** — `Research/_incoming/UE58_API_Changes.md` : reviewed upgrade notes, deprecations, and API changes for UE 5.8, used as the basis for vault conventions
+- `Research/_incoming/OpenWorld_RPG_Tutorials.md` — updated curated open-world RPG tutorial/research shortlist with version-specific review notes against current RoughRider sources
+- `Contrib/echoes-of-ascension-kit/` review and errata updates, including starter EchoesCore module notes aligned to current engine conventions
+- `Hermes/Hermes-Terminal-Guide.md` — local terminal/agent workflow reference for vault maintenance sessions
+
+### Changed
+- Version references across vault docs updated from **5.7 → 5.8** where the applied source/platform matches the UE 5.8 research brief:
+  - `_MOC_*`, `Articles/ue5-canonical-references.md`, `UE5_CPP/*`, `README.md`
+- `Step_by_Step_Guides/` RPG episodes flattened into Series 01–13 with upstream wikilink rewires and restored sequence continuity
+
+### Notes
+- Based on reviewed UE 5.8 research brief in `Research/_incoming/`
+- Release tagged from the reconciled post-parent-integration state using this task as the release gate
+
+---
+
 ## [v1.4.0] — 2026-06-13
 
 ### Added
@@ -35,7 +54,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [v1.3.1] — 2026-06-13
 
 ### Added
-- `_MOC_ROOT.md` — Master index linking all folder MOCs
+- `_MOC_ROOT.md` — Master index linking all 22 folder MOCs
 - Cross-links — `## See Also` sections added to 6 topic MOCs (GAS, CPP, AI, Data Assets, Save System, Animation)
 
 ### Fixed
@@ -49,7 +68,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `_REVIEW_New_Tutorials.md` → `.archive/`
 
 ---
-
 
 ## [v1.3.0] — 2026-06-13
 
@@ -79,6 +97,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - GAS networking summary (prediction, rollback)
 - Updated `_MOC_UE5_CPP.md` — new "Reference Guides" section with wikilinks
 - Updated `README.md` — UE5_CPP file count 5→8
+
 ## [v1.3.1] — 2026-06-13
 
 ### Added
@@ -90,7 +109,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `04_Procedural_Tower_Generation.md` — Deterministic seeding, PCG for decoration, runtime-NavMesh gotcha
   - `05_Performance_Budget_Reality.md` — 16.6 ms budget, software vs hardware Lumen, async loading
   - `_MOC_UE5_Gotchas.md` — Map of Content
-- **`Articles/ue5-canonical-references.md`** (contributed by Jeff) — Stable external references (Epic 5.7 docs, tranek GASDocumentation, vorixo Devtricks, Cedric's Network Compendium, Tom Looman, Lyra, benui)
+- **`Articles/ue5-canonical-references.md`** (contributed by Jeff) — Stable external references (Epic 5.8 docs, tranek GASDocumentation, vorixo Devtricks, Cedric's Network Compendium, Tom Looman, Lyra, benui)
 - **Cross-links** — `## See Also` sections added to 6 topic MOCs (GAS, CPP, AI, Data Assets, Save System, Animation) linking to relevant Architecture docs
 
 ### Fixed
@@ -108,5 +127,5 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Contrib/echoes-of-ascension-kit/` from PR #1 held for separate review (game-specific dev kit)
 
 ### Sources
-- UE5_Gotchas and ue5-canonical-references contributed by Jeff (PR #1), drafted on a local model (Qwen3.6-27B), fact-checked against Epic 5.7 docs
+- UE5_Gotchas and ue5-canonical-references contributed by Jeff (PR #1), drafted on a local model (Qwen3.6-27B), fact-checked against Epic 5.8 docs
 - Corrections applied during review: `UGameplayAbilityComponent` → `UAbilitySystemComponent`, invented `USaveGameComponent` → `UActorComponent`, non-existent async-load API → real `UAssetManager::GetStreamableManager().RequestAsyncLoad`

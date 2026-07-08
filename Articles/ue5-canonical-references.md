@@ -17,7 +17,7 @@ Each entry notes **why it matters for an open-world RPG with GAS + a procedural 
 
 | Resource | URL | Why |
 |----------|-----|-----|
-| Epic — Understanding GAS (UE 5.7 docs) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system` | The official, version-current reference. Start here for terminology. |
+| Epic — Understanding GAS (UE 5.8+) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system` | The official, version-current reference. Start here for terminology. |
 | tranek — GASDocumentation | `https://github.com/tranek/GASDocumentation` | The community bible for GAS. Replication modes, prediction, the whole mental model. Already referenced in [[GASDocumentation]]. |
 | vorixo — Devtricks (GAS) | `https://vorixo.github.io/devtricks/gas/` and `/gas-replication-proxy/` | "The truth of GAS" + advanced network optimization. Deep, correct, replication-focused. |
 | GAS Companion — ASC on PlayerState | `https://gascompanion.github.io/asc-on-player-state/` | The clearest write-up of the OwnerActor/AvatarActor + respawn rule. See [[01_GAS_Replication_Gotchas]]. |
@@ -34,7 +34,7 @@ Each entry notes **why it matters for an open-world RPG with GAS + a procedural 
 
 | Resource | URL | Why |
 |----------|-----|-----|
-| Epic — World Partition (UE 5.7) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/world-partition-in-unreal-engine` | Official WP reference: grid, streaming, data layers, HLODs. |
+| Epic — World Partition (UE 5.8+) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/world-partition-in-unreal-engine` | Official WP reference: grid, streaming, data layers, HLODs. |
 | Sam Bloomberg — World Partition Internals | `https://xbloom.io/2025/10/24/unreals-world-partition-internals/` | How WP actually works under the hood (actor descriptors, streaming generation). Invaluable when persistence gets weird. |
 | Tom Looman — UE C++ Save System | `https://tomlooman.com/unreal-engine-cpp-save-system/` | The canonical `UPROPERTY(SaveGame)` + proxy-archive save pattern used in [[02_OpenWorld_Save_Architecture]]. |
 | Epic — Level Streaming Persistence plugin | Built-in engine plugin | Automates persistence for World Partition levels. Underused; evaluate before hand-rolling. |
@@ -43,7 +43,7 @@ Each entry notes **why it matters for an open-world RPG with GAS + a procedural 
 
 | Resource | URL | Why |
 |----------|-----|-----|
-| Epic — PCG Framework (UE 5.7) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-content-generation-overview` | PCG went production-ready in 5.7 (~2× faster, dedicated editor mode). Use for decoration; see [[04_Procedural_Tower_Generation]]. |
+| Epic — PCG Framework (UE 5.8+) | `https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-content-generation-overview` | PCG reached maturity in UE 5.7/5.8. Use for decoration; see [[04_Procedural_Tower_Generation]]. |
 
 ## C++ / Architecture / Reference Projects
 
