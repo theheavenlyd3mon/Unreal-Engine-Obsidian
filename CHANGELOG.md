@@ -4,22 +4,6 @@ All notable changes to the UE5 Tutorial Knowledge Base will be documented in thi
 
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [v1.5.0] — 2026-07-08
-
-### Added
-- **UE 5.8 brief** — `Research/_incoming/UE58_API_Changes.md` reviewing upgrade notes, deprecations, and API changes in UE 5.8, used as the basis for vault conventions
-- Flattened `Step_by_Step_Guides` RPG episodes into Series 01–13 with upstream wikilink rewires
-
-### Changed
-- Version references across tutorials/MOCs/doc notes updated from **5.7 → 5.8** where the applied source platform matches the research brief
-- README folder tables/counts updated to reflect current vault state after consolidation
-
-### Notes
-- Based on reviewed UE 5.8 research brief in `Research/_incoming/`
-- Release outcome to be confirmed after tagging via GitHub release (`gh`)
-
----
-
 ## [v1.4.0] — 2026-06-13
 
 ### Added

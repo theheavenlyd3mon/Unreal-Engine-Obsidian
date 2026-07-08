@@ -84,7 +84,7 @@ referenced per-row by section.
 | `FActiveGameplayEffectHandle(int32)` | Constructor deprecated → `GetInstantExecutedHandle()` | 5.7 | `FGameplayEffectRemovalInfo` now holds pointer to owning ASC. Source: RN Framework/Gameplay API Change. |
 | `FActiveGameplayEffectHandle` (ownership) | Now holds a reference to its owning `UAbilitySystemComponent` instead of a global map | 5.7 | Same change as the int32-ctor removal; enables parts of ASC to work with object migrations and multi-server proxies. Source: RN GameplayAbilitySystem Release Notes (`FActiveGameplayEffectHandle now holds a reference to its Owning AbilitySystemComponent rather than using a Global Map`). |
 | `UAdditionalEffectsGameplayEffectComponent::OnApplicationGameplayEffects` | New `RemovalPolicy` (`EGameplayEffectGrantedEffectRemovalPolicy`) | 5.8 (new) | Controls lifetime of granted GEs: `GrantedEffectControlsOwnLifetime`, `RemoveGrantedEffectOnEnd`. Content validation errors if `RemoveGrantedEffectOnEnd` is used with an Instant owning GE or an Instant granted GE. Source: RN GameplayAbilitySystem Release Notes. |
-| GAS `AdditionalEffectsGameplayEffectComponent` | Added `RemovalPolicy`, `EGameplayEffectGrantedEffectRemovalPolicy`, stack-count field | 5.8 | Lifetime control of granted GEs [Gameplay New] |
+| `UInputTriggerCombo` (Enhanced Input combo trigger) | Deprecated | 5.8 | Unreliable and can corrupt mapping contexts in the editor; migrate away from the combo trigger. [Source: RN Enhanced Input Release Notes — "Deprecate the combo trigger"] |
 | PhysicsMover / NetworkPhysicsLiaison (Mover plugin) | Removed → use ChaosMover plugin | 5.8 | Equivalent functionality ported [Gameplay Upgrade Notes] |
 | FloorQueryUtil functions | Migrate to `FFloorCheckSettings` variants | 5.8 | [Gameplay Upgrade Notes] |
 | `bEnablePreferredInputAPIPreferences` (input project settings) | New flag + preferred input API list | 5.8 | [Gameplay API Change] |
@@ -152,8 +152,7 @@ referenced per-row by section.
 - **Platform macro hygiene.** New `UE_PLATFORM_*` macros mirror `PLATFORM_*`; Epic
   recommends migrating conditional compilation to `UE_PLATFORM_*` to avoid iOS header
   collisions. [Source: Foundation/Build Upgrade Notes] (same URL)
-- **Logging convention shift.** `UE_LOG` → `UE_LOGF` with UTF-8 format strings; a
-  `ConvertUELog.py` script automates most migrations. [Source: Core Upgrade Notes] (same URL)
+- **Logging convention shift.** `UE_LOG` → `UE_LOGF` with UTF-8 format strings; Epic provides a `ConvertUELog.py` script to automate most migrations. Current notes describe this as the migration recommendation/target, not a confirmed hard deprecation; keep using `UE_LOG` where broader compatibility or uncited deprecation text is required. [Source: Core Upgrade Notes] (same URL)
 - **Unified Input conventions.** Enhanced Input and Common Input/UI are unified; duplicate
   data assets are no longer needed. Prefer the new "Game Input for Windows" plugin over the
   deprecated Raw Input plugin. [Source: Framework — Unified Input]
@@ -183,10 +182,15 @@ Ordered by likely impact for an RPG codebase standardized on UE 5.7.
    skip it. [Source: Animation Runtime API Change] (Release Notes URL)
 2. **Input: `FInputDeviceScope` → `FInputDeviceRegistry`.** Any C++ wrapping events in
    `FInputDeviceScope` must migrate; set `UE_USE_LEGACY_INPUT_DEVICE_SCOPE=1` in Target.cs for
-   temporary compat. Raw Input plugin deprecated. [Source: Gameplay/Input API Change] (same URL)
+   temporary compat. Raw Input plugin deprecated. Also: Enhanced Input **combo trigger**
+   (`UInputTriggerCombo`) deprecated (unreliable, can corrupt mapping contexts) — migrate away.
+   [Source: Gameplay/Input API Change + Enhanced Input Release Notes] (same URL)
 3. **GAS handle construction.** `FActiveGameplayEffectHandle(int32)` ctor deprecated →
    `GetInstantExecutedHandle`; `FGameplayEffectRemovalInfo` now carries owning-ASC pointer.
-   [Source: Gameplay API Change] (same URL)
+   Separately, `FActiveGameplayEffectHandle` now references its owning `UAbilitySystemComponent`
+   (not a global map), and `UAdditionalEffectsGameplayEffectComponent` gains
+   `RemovalPolicy` (`RemoveGrantedEffectOnEnd`) for controlling granted-GE lifetime.
+   [Source: Gameplay API Change / GAS Release Notes] (same URL)
 4. **Mover: PhysicsMover/NetworkPhysicsLiaison removed.** Migrate to ChaosMover plugin.
    [Source: Gameplay Upgrade Notes] (same URL)
 5. **Python `ufunction` return packing order reversed.** Packed tuple returns must follow
@@ -224,6 +228,12 @@ Ordered by likely impact for an RPG codebase standardized on UE 5.7.
 Experimental / Beta / Production-Ready status noted (relevant to RPG vault conventions):
 [Source: launch announcement + Release Notes, URLs above]
 
+- **Incremental Cooking (Beta)** + **ZenServer as cooked output store (default on)**.
+- **Mass entity-system scheduler rewrite.** `MassCore` now handles off-game-thread entity
+  creation, sparse/virtual fragments, and rewritten processor scheduling.
+- **iOS Shader Model 6 (Experimental)** via Metal Shader Converter.
+- **Windows Game Input redist packaging.** Set `Game Input::IncludeRedistFiles=True` in
+  `DefaultEngine.ini` to package `GameInputRedist.msi`.
 - **Mesh Terrain (Experimental)** — true 3D-mesh terrain (overhangs, caves, floating islands),
   non-destructive modifiers, fully World Partition / OFPA interoperable, PCG-compatible.
   Potential long-term replacement for heightfield Landscape.
