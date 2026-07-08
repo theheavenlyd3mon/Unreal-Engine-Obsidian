@@ -24,6 +24,8 @@ ERROR	UE5_Materials/02_Layered_Material_Workflow.md	broken wikilink [[UE5_Materi
 ERROR	UE5_Materials/03_Parallax_Occlusion_Mapping.md	broken wikilink [[UE5_Materials_MOC|UE5 Materials MOC]]
 WARN	<vault>	duplicate frontmatter title 'how to start optimizing your unreal engine game': Learn_to_Code_Blueprints/start_optimizing_your_Unreal_Engine_Game.md, Step_by_Step_Guides/03_Optimizing_Your_Unreal_Engine_Game.md
 WARN	<vault>	duplicate note stem 'readme': Contrib/echoes-of-ascension-kit/README.md, Contrib/echoes-of-ascension-kit/StarterCode/README.md, Contrib/echoes-of-ascension-kit/concept-art/README.md, Contrib/echoes-of-ascension-kit/eval-harness/README.md, README.md
+WARN	AGENTS.md	missing YAML frontmatter
+WARN	AGENTS.md	not linked from any _MOC_ file
 WARN	Contrib/echoes-of-ascension-kit/StarterCode/FIRST_BUILD.md	missing YAML frontmatter
 WARN	Contrib/echoes-of-ascension-kit/StarterCode/FIRST_BUILD.md	not linked from any _MOC_ file
 WARN	Contrib/echoes-of-ascension-kit/design/01_VERTICAL_SLICE_SPEC.md	missing YAML frontmatter
@@ -37,7 +39,14 @@ WARN	Contrib/echoes-of-ascension-kit/design/04_V130_ERRATA_AND_ALIGNMENT.md	not 
 WARN	Contrib/echoes-of-ascension-kit/hermes-skill/PROFILE-PROMPTS.md	missing YAML frontmatter
 WARN	Contrib/echoes-of-ascension-kit/hermes-skill/PROFILE-PROMPTS.md	not linked from any _MOC_ file
 WARN	Contrib/echoes-of-ascension-kit/hermes-skill/unreal-engine-dev/SKILL.md	not linked from any _MOC_ file
+WARN	Hermes/Hermes-Terminal-Guide.md	not linked from any _MOC_ file
+WARN	Research/_incoming/UE58_API_Changes.md	missing YAML frontmatter
+WARN	Research/_incoming/UE58_API_Changes.md	not linked from any _MOC_ file
 WARN	UE5_CPP/UE5_Cpp_Reference_Guide.md	missing YAML frontmatter
 WARN	UE5_CPP/UE5_Engine_Source_Code_Access.md	missing YAML frontmatter
 WARN	UE5_CPP/UE5_GAS_Reference.md	missing YAML frontmatter
 WARN	UE5_CPP/UE5_Gameplay_Framework_Reference.md	missing YAML frontmatter
+WARN	templates/feature-shape-template.md	not linked from any _MOC_ file
+WARN	templates/gotcha-template.md	not linked from any _MOC_ file
+WARN	templates/pr-body-template.md	missing YAML frontmatter
+WARN	templates/pr-body-template.md	not linked from any _MOC_ file
