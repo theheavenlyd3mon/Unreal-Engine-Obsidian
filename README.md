@@ -27,7 +27,6 @@ Every note carries YAML frontmatter (title, source, type, tags) and a Related se
 
 Files carried forward from pre-sync local work that have no upstream equivalent:
 - `Research/` — in-progress UE 5.8 API research and vault curation notes.
-- `Local_Models_Setup.md` — local LLM / TurboHaul hardware setup reference (RTX 4070 Ti).
 
 ## Links
 
