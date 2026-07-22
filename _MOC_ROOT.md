@@ -29,6 +29,7 @@ tags: [ue5, moc, root]
 - [[_MOC_UE5_World_Partition]] — World Partition, HLODs
 - [[_MOC_UE5_Audio]] — MetaSounds
 - [[_MOC_UE5_Multiplayer]] — Replication, RPCs
+- [[_MOC_UE5_Python]] — Python scripting, asset automation
 
 ## Architecture & Design
 
